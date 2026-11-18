@@ -1,0 +1,7 @@
+node_modules/
+dist/
+ref-threejs-punk/
+assets/raw/
+.DS_Store
+*.log
+.vercel

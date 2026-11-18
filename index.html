@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#07040f" />
+    <meta
+      name="description"
+      content="NEON MATSURI 2099 — a walkable cyberpunk Japanese festival that never existed. Seven stalls, one night, no map."
+    />
+    <title>NEON MATSURI 2099 — A festival that never existed</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DotGothic16&family=Shippori+Mincho:wght@500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="scene-layer" aria-hidden="true"></div>
+    <div class="fx fx-grain" aria-hidden="true"></div>
+    <div class="fx fx-scan" aria-hidden="true"></div>
+    <div class="fx fx-vignette" aria-hidden="true"></div>
+
+    <div id="loader" class="loader">
+      <div class="loader-inner">
+        <div class="loader-mark">
+          <span class="loader-jp">電光祭</span>
+          <span class="loader-latin">NEON MATSURI</span>
+        </div>
+        <div class="loader-track"><span id="loaderBar"></span></div>
+        <div class="loader-row">
+          <span id="loaderStatus">ESTABLISHING NEON LINK</span>
+          <span id="loaderPct">00</span>
+        </div>
+      </div>
+    </div>
+
+    <section id="intro" class="intro" aria-label="Welcome">
+      <div class="intro-scrim"></div>
+      <div class="intro-top">
+        <div class="intro-brand">
+          <span class="brand-seal">祭</span>
+          <span>NEON MATSURI<br /><em>二〇九九</em></span>
+        </div>
+        <div class="intro-clock">
+          <span class="live-dot"></span>
+          <span id="introDate">TOKYO / SECTOR 09</span>
+          <span id="introTime">02:47</span>
+        </div>
+      </div>
+
+      <div class="intro-vertical" aria-hidden="true">ここではない、どこかの祭り</div>
+
+      <div class="intro-copy">
+        <p class="eyebrow"><span>VOL. 09</span> A FESTIVAL THAT NEVER EXISTED <span>ONE NIGHT ONLY</span></p>
+        <h1 class="intro-title">
+          <span class="title-line">NEON</span>
+          <span class="title-line title-outline">MATSURI</span>
+          <span class="title-year">’99 <i></i> 2099</span>
+        </h1>
+        <div class="intro-meta">
+          <p class="intro-lede">
+            Seven stalls folded between the vending machines and the last train.
+            The rain has been falling since 1999. The lanterns are still warm.
+          </p>
+          <div class="intro-facts">
+            <div><strong>07</strong><span>stalls to find</span></div>
+            <div><strong>01</strong><span>golden koi</span></div>
+            <div><strong>∞</strong><span>wishes allowed</span></div>
+          </div>
+        </div>
+        <div class="intro-actions">
+          <button id="enterBtn" class="btn btn-enter" type="button">
+            <span class="btn-kicker">ADMIT ONE</span>
+            <span class="btn-main">Enter the street <i>↗</i></span>
+            <span class="btn-sub">WASD / DRAG / SCROLL</span>
+          </button>
+          <div class="intro-aside">
+            <p>Headphones recommended.</p>
+            <p>Best after midnight, wherever you are.</p>
+            <button id="introCreditsBtn" class="text-btn" type="button">ASSETS + CREDITS</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="intro-bottom">
+        <div class="ticker">
+          <div class="ticker-track">
+            <span>電光祭</span><span>NEO KABUKI-CHO</span><span>雨天決行 / RAIN OR NEON</span><span>祭</span>
+            <span>NO MAP</span><span>NO SIGNAL</span><span>ONE NIGHT</span><span>東京 2099</span>
+            <span>電光祭</span><span>NEO KABUKI-CHO</span><span>雨天決行 / RAIN OR NEON</span><span>祭</span>
+            <span>NO MAP</span><span>NO SIGNAL</span><span>ONE NIGHT</span><span>東京 2099</span>
+          </div>
+        </div>
+        <p class="intro-coord">35.6938° N / 139.7034° E &nbsp;·&nbsp; ALT 2099</p>
+      </div>
+    </section>
+
+    <div id="hud" class="hud is-hidden" aria-live="off">
+      <header class="hud-top">
+        <div class="hud-brand">
+          <span class="hud-seal">祭</span>
+          <div class="hud-wordmark">
+            <strong>NEON MATSURI</strong>
+            <span>電光祭 / 2099</span>
+          </div>
+        </div>
+        <div id="hudLocation" class="hud-location">
+          <span class="hud-location-label">NOW</span>
+          <span id="hudLocationText">THE STREET</span>
+        </div>
+        <div class="hud-actions">
+          <button id="soundBtn" class="hud-btn" type="button" aria-label="Toggle sound" aria-pressed="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="sound-waves" d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12"/></svg>
+            <span>SOUND</span>
+          </button>
+          <button id="mapBtn" class="hud-btn" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2V6z"/><path d="M9 4v14M15 6v14"/></svg>
+            <span>MAP</span>
+          </button>
+          <button id="passportBtn" class="hud-btn hud-btn-stamp" type="button">
+            <span class="hud-stamp-count"><b id="stampCount">0</b>/7</span>
+            <span>PASSPORT</span>
+          </button>
+          <button id="fxBtn" class="hud-btn hud-btn-icon" type="button" aria-label="Toggle visual quality" title="Toggle visual quality">
+            <span id="fxLabel">FX</span>
+          </button>
+        </div>
+      </header>
+
+      <div id="stampRail" class="stamp-rail" aria-label="Festival stamps"></div>
+
+      <div class="hud-crosshair" aria-hidden="true">
+        <span class="crosshair-ring"></span>
+        <span class="crosshair-dot"></span>
+      </div>
+
+      <div id="hoverCard" class="hover-card" aria-hidden="true">
+        <span class="hover-no">01</span>
+        <div>
+          <strong>MIDNIGHT BROTH CLUB</strong>
+          <span>CLICK / E TO ENTER</span>
+        </div>
+        <b class="hover-glyph">麺</b>
+      </div>
+
+      <div id="walkPrompt" class="walk-prompt">
+        <span class="walk-key">W</span><span>walk</span>
+        <span class="walk-divider"></span>
+        <span class="walk-key">⇧</span><span>run</span>
+        <span class="walk-divider"></span>
+        <span class="walk-mouse">drag</span><span>look</span>
+        <span class="walk-divider"></span>
+        <span class="walk-key">E</span><span>enter stall</span>
+      </div>
+
+      <div id="strollBtn" class="stroll-btn" role="button" tabindex="0" aria-pressed="false">
+        <span class="stroll-dot"></span>
+        <span>STROLL</span>
+      </div>
+
+      <div id="toast" class="toast" aria-live="polite"></div>
+
+      <div id="mobileControls" class="mobile-controls" aria-hidden="true">
+        <div id="joy" class="joy"><span class="joy-knob"></span></div>
+        <div class="mobile-look">drag&nbsp;to&nbsp;look</div>
+      </div>
+    </div>
+
+    <div id="modalRoot" class="modal-root" aria-live="polite"></div>
+
+    <noscript>
+      <div class="no-js">This festival needs JavaScript and WebGL to open. Please enable both and come back after dark.</div>
+    </noscript>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
